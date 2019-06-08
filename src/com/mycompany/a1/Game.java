@@ -62,6 +62,24 @@ public class Game extends Form {
 					case '<': //Turn the missile launcher counter clockwise
 						gw.turnPSMLLeft();
 						break;
+					case 'n': // Load a new supply of missiles to PS
+						gw.resetMissileCount();
+						break;
+					case 'k': // PS missile killed and Asteroid
+						gw.psFireMissile();
+						gw.removeAsteroid();
+						gw.incrementScore(10);
+						break;
+					case 'e':
+						gw.psFireMissile();
+						gw.removeNPS();
+						gw.incrementScore(20);
+						break;
+					case 'E':
+						gw.destroyPS();
+						gw.destroyNPSMissile();
+						break;
+
 				}
 				
 			}
