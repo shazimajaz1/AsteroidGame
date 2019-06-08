@@ -22,6 +22,7 @@ public class GameWorld {
 	public GameWorld() {
 		store = new ArrayList<GameObject>();
 		missilesLeft = 10;
+		livesLeft = 5; //Initial Lives
 	}
 	
 	/*
@@ -231,6 +232,40 @@ public class GameWorld {
 		System.out.println("*************************************************");
 	}
 
-	
+	/*
+		This method turns the PS Missile Launcher Left when called
+	 */
+	public void turnPSMLLeft() {
+		//Find the PSML here
+		int index = 0;
+		while(index < store.size()) {
+			GameObject gameObject = store.get(index);
+			if(gameObject instanceof PS) {
+				PS launcher = (PS) gameObject;
+				launcher.turnMLLeft();
+				System.out.println(launcher.getLauncher().toString());
+			}
+			index++;
+		}
+	}
+
+	/*
+		This method turns the PS Missile Launcher Right when called
+	 */
+	public void turnPSMLRight() {
+		//Find the PSML here
+		int index = 0;
+		while(index < store.size()) {
+			GameObject gameObject = store.get(index);
+			if(gameObject instanceof PS) {
+				PS launcher = (PS) gameObject;
+				launcher.turnMLRight();
+				System.out.println(launcher.getLauncher().toString());
+			}
+			index++;
+		}
+
+
+	}
 	
 }

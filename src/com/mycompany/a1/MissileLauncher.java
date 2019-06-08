@@ -24,4 +24,14 @@ public class MissileLauncher extends MoveableObject {
 		// TODO Auto-generated method stub
 		
 	}
+
+	/*
+		toString override
+	 */
+	public String toString() {
+		//get the description parent
+		String parDesc = super.toString();
+		String myDesc = "Missile: " + missileCount;
+		return  parDesc + " | " + myDesc;
+	}
 }

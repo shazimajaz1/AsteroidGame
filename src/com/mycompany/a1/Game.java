@@ -20,7 +20,6 @@ public class Game extends Form {
 		Form main = new Form("Asteroid Game Controller", BoxLayout.y());
 		final TextField textField = new TextField();
 		main.add(textField);
-		main.add(new TextField());
 		main.show();
 		
 		//Create Action Listeners
@@ -56,8 +55,13 @@ public class Game extends Form {
 						System.out.println("Status of all objects");
 						System.out.println(gw.toString());
 						System.out.println();
-						break;	
-						
+						break;
+					case '>': //Turn the missile launcher clockwise
+						gw.turnPSMLRight();
+						break;
+					case '<': //Turn the missile launcher counter clockwise
+						gw.turnPSMLLeft();
+						break;
 				}
 				
 			}

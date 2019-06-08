@@ -11,6 +11,7 @@ public class PS extends Ship implements Steerable{
 		super.resetMissileCount();
 		super.setSpeed(0);
 		super.setDirection(90);
+		missileLauncher = new SteerableMissileLauncher();
 	}
 	
 	/*
@@ -22,6 +23,7 @@ public class PS extends Ship implements Steerable{
 		super.resetMissileCount();
 		super.setSpeed(speed);
 		super.setDirection(direction);
+		missileLauncher = new SteerableMissileLauncher();
 		
 	}
 	
@@ -42,6 +44,18 @@ public class PS extends Ship implements Steerable{
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
+	}
+
+	public void turnMLLeft(){
+		missileLauncher.turnLeft();
+	}
+
+	public void turnMLRight(){
+		missileLauncher.turnRight();
+	}
+
+	public SteerableMissileLauncher getLauncher() {
+		return this.missileLauncher;
 	}
 	
 	
