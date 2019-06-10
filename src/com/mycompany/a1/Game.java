@@ -30,56 +30,24 @@ public class Game extends Form {
 				String command = textField.getText().toString();
 				textField.clear();
 				switch(command.charAt(0)) {
-					case 'a': //Add a new Asteroid
-						gw.addAsteroid();
-						break;
-					case 'y': //Add a new NPS
-						gw.addNPS();
-						break;
-					case 'b': //Add a new blinking space station to the world
-						gw.addSpaceStation();
-						break;
-					case 's': //Add a new PS to the world
-						gw.addPS();
-						break;
-					case 'f' : //Fire a missile out of the PS
-						gw.psFireMissile();
-						break;
-					case 'L' : //Fire a missile from NPS
-						gw.npsFireMissile();
-						break;
-					case 'm' : //Print a map/toString of the Game World
-						gw.printMap();
-						break;
-					case 'p': //Print the status of all the objects in the game world
-						System.out.println("Status of all objects");
-						System.out.println(gw.toString());
-						System.out.println();
-						break;
-					case '>': //Turn the missile launcher clockwise
-						gw.turnPSMLRight();
-						break;
-					case '<': //Turn the missile launcher counter clockwise
-						gw.turnPSMLLeft();
-						break;
-					case 'n': // Load a new supply of missiles to PS
-						gw.resetMissileCount();
-						break;
-					case 'k': // PS missile killed and Asteroid
-						gw.psFireMissile();
-						gw.removeAsteroid();
-						gw.incrementScore(10);
-						break;
-					case 'e':
-						gw.psFireMissile();
-						gw.removeNPS();
-						gw.incrementScore(20);
-						break;
-					case 'E':
-						gw.destroyPS();
-						gw.destroyNPSMissile();
-						break;
-
+					case 'a': addAsteroid(); break; //Add asteroid
+					case 'y': addNPS(); break; //Add NPS
+					case 'b': addSpaceStation(); break; //Add a new space station
+					case 's': addPS(); break; //Add a new PS
+					case 'f': psFireMissile(); break;
+					case 'L': npsFireMissile(); break;
+					case 'm' : printMap(); break;
+					case 'p': printStatus(); break;
+					case '>': turnPSMLRight(); break;
+					case '<': turnPSMLLeft(); break;
+					case 'n': refillMissiles(); break;
+					case 'k': psMissileKilledAsteroid(); break;
+					case 'e': psMissileKilledNPS(); break;
+					case 'E': npsMissileKilledPS(); break;
+					case 'c': psCrashedIntoAnAsteroid(); break;
+					case 'h': break;
+					case 'x': break;
+					case 'I': break;
 				}
 				
 			}
@@ -87,7 +55,84 @@ public class Game extends Form {
 		});
 		
 	}
-	
+
+	private void psCrashedIntoAnAsteroid() {
+		//Remove the ship if there are lives left
+		gw.destroyPS();
+	}
+
+	private void addAsteroid(){
+		gw.addAsteroid();
+	}
+
+	private void addNPS(){
+		gw.addNPS();
+
+	}
+
+	private void addSpaceStation() {
+		gw.addSpaceStation();
+	}
+
+	private void addPS() {
+		gw.addPS();
+	}
+
+	private void psFireMissile(){
+		gw.psFireMissile();
+	}
+
+	private void npsFireMissile(){
+		gw.npsFireMissile();
+
+	}
+
+	private void printMap(){
+		gw.printMap();
+	}
+
+	private void printStatus() {
+		//Print the status of all the objects in the game world
+		System.out.println("Status of all objects");
+		System.out.println(gw.toString());
+		System.out.println();
+
+	}
+
+	private void turnPSMLRight() {
+		gw.turnPSMLRight();
+
+	}
+
+	private void turnPSMLLeft() {
+		gw.turnPSMLLeft();
+
+	}
+
+	private void refillMissiles() {
+		gw.resetMissileCount();
+	}
+
+
+	private void psMissileKilledAsteroid(){
+		// PS missile killed and Asteroid
+		gw.psFireMissile();
+		gw.removeAsteroid();
+		gw.incrementScore(10);
+
+	}
+
+	private void psMissileKilledNPS() {
+		gw.psFireMissile();
+		gw.removeNPS();
+		gw.incrementScore(20);
+	}
+
+	private void npsMissileKilledPS() {
+		gw.destroyPS();
+		gw.destroyNPSMissile();
+	}
+
 	
 	private void quit() {
 		
