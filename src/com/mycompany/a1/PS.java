@@ -1,11 +1,17 @@
 package com.mycompany.a1;
 
 public class PS extends Ship implements Steerable{
+
+	/*
+		Member variables and class constants
+	 */
 	private SteerableMissileLauncher missileLauncher;
+	private static PS currentShip;
+
 	/*
 	 * Constructor 1: Default
 	 */
-	public PS() {
+	private PS() {
 		super.setX(512);
 		super.setY(384);
 		super.resetMissileCount();
@@ -13,7 +19,19 @@ public class PS extends Ship implements Steerable{
 		super.setDirection(90);
 		missileLauncher = new SteerableMissileLauncher();
 	}
-	
+
+	/*
+		This method returns the current ship
+	 */
+	public static PS getPS(){
+		if(currentShip != null){
+			return currentShip;
+		} else {
+			currentShip = new PS();
+			return currentShip;
+		}
+
+	}
 	/*
 	 *Constructor 2 
 	 */

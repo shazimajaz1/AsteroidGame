@@ -113,7 +113,7 @@ public class GameWorld {
 	 */
 	public void addPS() {
 		//Add a new PS here
-		PS ps = new PS();
+		PS ps = PS.getPS();
 		store.add(ps);
 		System.out.println(ps.toString());
 		this.hasPlayerShip = true;
@@ -268,7 +268,7 @@ public class GameWorld {
 	 * This method prints the map of the objects inside the GameWorld
 	 */
 	public void printMap() {
-		System.out.println("**********************************Game World******************************");
+		System.out.println("***************************************Game World***********************************");
 		if (store.size() > 0) {
 			int index = 0;
 			while (index < store.size()) {
@@ -277,7 +277,7 @@ public class GameWorld {
 				index++;
 			}
 		}
-		System.out.println("*************************************************************************");
+		System.out.println("************************************************************************************");
 	}
 
 	/*
@@ -368,7 +368,5 @@ public class GameWorld {
 		}
 	}
 
-	/*
 
-	 */
 }
