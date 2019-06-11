@@ -44,38 +44,57 @@ public class PS extends Ship implements Steerable{
 		missileLauncher = new SteerableMissileLauncher();
 		
 	}
-	
+
+	/*
+		This method when invoked turns the ship left.
+	 */
 	public void turnLeft() {
 		int direction = super.getDirection();
 		direction--;
 		super.setDirection(direction);
-	} 
+	}
+
+	/*
+		This method when invoked, turns the ship right.
+	 */
 	public void turnRight() {
 		int direction = super.getDirection();
 		direction++;
 		super.setDirection(direction);
 	}
+
+	/*
+		This method returns a string representation of the ship.
+	 */
 	public String toString() {
 		String parentDesc = super.toString();
 		return "Player Ship \n" + parentDesc;
 	}
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-	}
 
-	public void turnMLLeft(){
+	/*
+		This method turns the missile launcher of PS left.
+	 */
+	public void turnMLLeft() {
 		missileLauncher.turnLeft();
 	}
 
+	/*
+		This method turns the missile launcher of the PS right.
+	 */
 	public void turnMLRight(){
+
 		missileLauncher.turnRight();
 	}
 
+
+	/*
+		This method returns the launcher of the player ship.
+	 */
 	public SteerableMissileLauncher getLauncher() {
+
 		return this.missileLauncher;
 	}
 	
 	
-	}
+}
 

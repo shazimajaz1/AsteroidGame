@@ -26,7 +26,10 @@ public abstract class FixedObject extends GameObject {
 			throw new IllegalArgumentException("Illeger lower and upper range");
 		}
 	}
-	
+
+	/*
+		This method helps in creating a new ID of the FixedObject
+	 */
 	public static int getNewID() {
 		//TODO: return a new ID from the previous id
 		return 0;

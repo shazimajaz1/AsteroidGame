@@ -20,8 +20,12 @@ import com.codename1.io.NetworkEvent;
  */
 public class Starter {
 
+    /*
+        Field variables and state
+     */
     private Form current;
     private Resources theme;
+
 
     public void init(Object context) {
         // use two network threads instead of one

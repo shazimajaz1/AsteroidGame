@@ -17,6 +17,7 @@ public abstract class MoveableObject extends GameObject implements Moveable {
 	 * 	Constructor 1: Default
 	 */
 	public MoveableObject() {
+		super();
 		this.speed = random.nextInt(20); //Max speed is 20
 		this.direction = random.nextInt(359); //0 to 359
 	}
@@ -38,7 +39,10 @@ public abstract class MoveableObject extends GameObject implements Moveable {
 	/*
 	 * 	Move method must be implemented by all the child: required
 	 */
-	public abstract void move();
+	public void move(){
+		//This needs to be implemented
+	}
+
 	public int getSpeed() {
 		return this.speed;
 		
@@ -84,7 +88,7 @@ public abstract class MoveableObject extends GameObject implements Moveable {
 		//Return the generated number
 		return number;
 		} else {
-			throw new IllegalArgumentException("Illeger lower and upper range");
+			throw new IllegalArgumentException("Illegal lower and upper range");
 		}
 	}
 	

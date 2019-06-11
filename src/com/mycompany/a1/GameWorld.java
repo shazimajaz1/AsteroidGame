@@ -109,14 +109,28 @@ public class GameWorld {
 	}
 
 	/*
-	 *  This method adds a player ship
+	 *  This method adds a player ship and only adds the player ship if there is no playership already
 	 */
 	public void addPS() {
-		//Add a new PS here
-		PS ps = PS.getPS();
-		store.add(ps);
-		System.out.println(ps.toString());
-		this.hasPlayerShip = true;
+		boolean found = false;
+		int index = 0;
+		while(index < store.size()){
+			GameObject go = store.get(index);
+			index++;
+
+			if(go instanceof PS){
+				found = true;
+			}
+		}
+		if(!found) {
+			//Add a new PS here
+			PS ps = PS.getPS();
+			store.add(ps);
+			System.out.println(ps.toString());
+			this.hasPlayerShip = true;
+		} else {
+			System.out.println("There is already a player ship in the game");
+		}
 	}
 
 	/*
@@ -197,17 +211,25 @@ public class GameWorld {
 	 * This method fires the PS Missile when called
 	 */
 	public void psFireMissile() {
-		//Fire PS Missile here
-		int index = 0;
-		while (index < store.size()) {
-			GameObject gameObject = store.get(index);
-			if (gameObject instanceof PS) {
-				((PS) gameObject).fireMissile();
-				missilesLeft--;
-				store.add(new Missile((PS) gameObject));
-			}
-			index++;
+		if(missilesLeft > 0) {
+			//Fire PS Missile here
+			int index = 0;
+			while (index < store.size()) {
+				GameObject gameObject = store.get(index);
+				if (gameObject instanceof PS) {
+					PS ps = (PS) gameObject;
+					ps.fireMissile();
+					missilesLeft--;
+					Missile missile = new Missile(ps);
+					store.add(missile);
+					System.out.println("A missile from Player Ship has been fired!");
+				}
+				index++;
 
+			}
+		} else {
+			System.out.println();
+			System.out.print("You are out of missiles! Go to the space station to refill!");
 		}
 
 	}
@@ -331,6 +353,7 @@ public class GameWorld {
 			}
 			index++;
 		}
+
 	}
 
 	/*

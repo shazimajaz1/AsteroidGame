@@ -96,12 +96,18 @@ public class Game extends Form {
 
     }
 
+    /*
+        This method is invoked when asteroid hits a non player ship
+     */
     private void asteroidHitNPS() {
         System.out.println("An asteroid has collided with an NPS. Both have been removed!");
         gw.removeAsteroid();
         gw.removeNPS();
     }
 
+    /*
+        This method is invoked when the asteroid hits another asteroid
+     */
     private void asteroidHitAsteroid() {
         System.out.println("Two Asteroids have collided each other and have been removed!");
         gw.removeAsteroid();
@@ -109,12 +115,18 @@ public class Game extends Form {
     }
 
 
+    /*
+        This method is invoked when the Player ship hits a non Player ship
+     */
     private void psHitNPS() {
         System.out.println("You crashed into another ship. Watch out next time!");
         gw.removeNPS();
         gw.destroyPS();
     }
 
+    /*
+        This method is invoked when the Player Ship crashes into an astroid.
+     */
     private void psCrashedIntoAnAsteroid() {
         //Remove the ship if there are lives left
         System.out.println("You crashed into an Asteroid. Watch out next time!");
@@ -122,36 +134,60 @@ public class Game extends Form {
         gw.removeAsteroid();
     }
 
+    /*
+        This method adds a new asteroid int the gameworld
+     */
     private void addAsteroid() {
         gw.addAsteroid();
     }
 
+    /*
+        This method adds a new non player ship
+     */
     private void addNPS() {
         gw.addNPS();
 
     }
 
+    /*
+        This method adds a new space station to the gameworld.
+     */
     private void addSpaceStation() {
         gw.addSpaceStation();
     }
 
+    /*
+        This method adds a player ship to the Game World.
+     */
     private void addPS() {
         gw.addPS();
     }
 
+    /*
+        This method fire missiles out of the player ship
+     */
     private void psFireMissile() {
         gw.psFireMissile();
     }
 
+    /*
+        This method fires missiles out of the non player ship
+     */
     private void npsFireMissile() {
         gw.npsFireMissile();
 
     }
 
+    /*
+        This methid prints the map of the game world objects
+     */
     private void printMap() {
         gw.printMap();
     }
 
+    /*
+        This method prints the status of the objects in the game world
+     */
     private void printStatus() {
         //Print the status of all the objects in the game world
         System.out.println("Status of all objects");
@@ -160,21 +196,32 @@ public class Game extends Form {
 
     }
 
+    /*
+        This method turns player ship missile launcher to the right
+     */
     private void turnPSMLRight() {
         gw.turnPSMLRight();
 
     }
 
+    /*
+       This method turns player ship missile launcher to the left
+    */
     private void turnPSMLLeft() {
         gw.turnPSMLLeft();
 
     }
 
+    /*
+        This method refills missiles for player ship
+     */
     private void refillMissiles() {
         gw.resetMissileCount();
     }
 
-
+    /*
+        This method is involed when PS Missile kills an Asteroid. Asteroid is removed.
+    */
     private void psMissileKilledAsteroid() {
         // PS missile killed and Asteroid
         gw.psFireMissile();
@@ -183,18 +230,26 @@ public class Game extends Form {
 
     }
 
+    /*
+        This method is involved when PS Missile kills a NPS.
+     */
     private void psMissileKilledNPS() {
         gw.psFireMissile();
         gw.removeNPS();
         gw.incrementScore(20);
     }
 
+    /*
+        This method is involved when NPS Missile kills PS
+     */
     private void npsMissileKilledPS() {
         gw.destroyPS();
         gw.destroyNPSMissile();
     }
 
-
+    /*
+        This method closes the game.
+     */
     private void quit() {
 
     }

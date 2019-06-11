@@ -1,8 +1,9 @@
 package com.mycompany.a1;
 
-import java.util.Random;
-
 import com.codename1.charts.util.ColorUtil;
+
+import java.awt.*;
+import java.util.Random;
 
 public abstract class GameObject{
 	private double x;
@@ -14,7 +15,8 @@ public abstract class GameObject{
 	 * Constructor #1. Default.
 	 */
 	public GameObject() {
-		this.color = ColorUtil.LTGRAY;
+		color = ColorUtil.LTGRAY;
+
 		setupLocation();
 		
 	}
@@ -72,6 +74,10 @@ public abstract class GameObject{
 	}
 	
 	public String toString() {
-		return "Location: (" + x + ", " + y + ") " + "Color: " + this.color;
+		return "Location: (" + x + ", " + y + ") " + "Color: " +
+				"[" +
+				+ ColorUtil.blue(this.color) + ", " +
+				+ ColorUtil.red(this.color) + ", " +
+				+ ColorUtil.blue(this.color) + "] " + "|";
 	}
 }
